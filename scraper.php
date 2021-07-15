@@ -180,5 +180,5 @@ function webScraper($url, $avgUrl) {
 
 
 
-// Begin the crawl_data process by crawl_data the starting link first.
+// Begin the crawl_data process by crawl_data, the starting link first.
 $json = json_decode(webScraper($crawlUrl, $pageCrawl));
