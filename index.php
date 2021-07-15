@@ -1,6 +1,6 @@
 <?php 
 
-require_once('scrapper.php');
+require_once('scraper.php');
 
 ?>
 
