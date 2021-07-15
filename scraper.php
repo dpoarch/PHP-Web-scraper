@@ -33,7 +33,7 @@ function avgTime($start, $end){
 }
 
 
-function scrapped_info($url, $baseUrl) {
+function scraped_info($url, $baseUrl) {
 
 	$options = array('http'=>array('ignore_errors' => true, 'method'=>"GET", 'headers'=>"User-Agent: howBot/0.1\n"));
 
@@ -113,7 +113,7 @@ function scrapped_info($url, $baseUrl) {
 }
 
 
-function webScrapper($url, $avgUrl) {
+function webScraper($url, $avgUrl) {
 
 	global $check_url_crawled;
 	global $crawl_data;
@@ -160,7 +160,7 @@ function webScrapper($url, $avgUrl) {
 						$check_url_crawled[] = $l;
 						$crawl_data[] = $l;
 						
-						$crawl_result[] = scrapped_info($l, $url);
+						$crawl_result[] = scraped_info($l, $url);
 				}
 			}
 			
@@ -171,7 +171,7 @@ function webScrapper($url, $avgUrl) {
 	array_shift($crawl_data);
 
 	foreach ($crawl_data as $site) {
-		webScrapper($site, $avgUrl);
+		webScraper($site, $avgUrl);
 	}
 	return json_encode($crawl_result);
 
@@ -181,4 +181,4 @@ function webScrapper($url, $avgUrl) {
 
 
 // Begin the crawl_data process by crawl_data the starting link first.
-$json = json_decode(webScrapper($crawlUrl, $pageCrawl));
+$json = json_decode(webScraper($crawlUrl, $pageCrawl));
